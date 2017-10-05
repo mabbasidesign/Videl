@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Data.Entity;
 using Videl.Models;
 using Videl.ViewModels;
 
@@ -10,6 +11,18 @@ namespace Videl.Controllers
 {
     public class MovieController : Controller
     {
+        private readonly ApplicationDbContext _context;
+
+        public MovieController()
+        {
+            _context = new ApplicationDbContext();
+        }
+
+        protected override void Dispose(bool disposing)
+        {
+            _context.Dispose();
+        }
+
         // GET: Movies
         public ActionResult Random()
         {
@@ -42,7 +55,18 @@ namespace Videl.Controllers
 
         public ActionResult Index()
         {
-            var movie = GetMovies();
+            var movie = _context.Movies
+                .Include(c => c.Genre)
+                .ToList();
+
+            return View(movie);
+        }
+
+        public ActionResult Details(int id)
+        {
+            var movie = _context.Movies
+                .Include(c => c.Genre)
+                .SingleOrDefault(c => c.Id == id);
 
             return View(movie);
         }

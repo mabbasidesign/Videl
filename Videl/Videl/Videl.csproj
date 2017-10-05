@@ -231,9 +231,18 @@
     <Compile Include="Migrations\201710051550390_Add BirthDay to customer.Designer.cs">
       <DependentUpon>201710051550390_Add BirthDay to customer.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201710051721246_Etend Movie Class.cs" />
+    <Compile Include="Migrations\201710051721246_Etend Movie Class.Designer.cs">
+      <DependentUpon>201710051721246_Etend Movie Class.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201710051725285_populate genere table.cs" />
+    <Compile Include="Migrations\201710051725285_populate genere table.Designer.cs">
+      <DependentUpon>201710051725285_populate genere table.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Customer.cs" />
+    <Compile Include="Models\Genre.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\MemberShipType.cs" />
@@ -305,6 +314,7 @@
     <Content Include="Views\Movie\Index.cshtml" />
     <Content Include="Views\Customer\Index.cshtml" />
     <Content Include="Views\Customer\Details.cshtml" />
+    <Content Include="Views\Movie\Details.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -338,6 +348,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201710051550390_Add BirthDay to customer.resx">
       <DependentUpon>201710051550390_Add BirthDay to customer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201710051721246_Etend Movie Class.resx">
+      <DependentUpon>201710051721246_Etend Movie Class.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201710051725285_populate genere table.resx">
+      <DependentUpon>201710051725285_populate genere table.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
