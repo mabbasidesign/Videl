@@ -219,6 +219,18 @@
     <Compile Include="Migrations\201710042148157_PopulateMemberShipType.Designer.cs">
       <DependentUpon>201710042148157_PopulateMemberShipType.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201710042218006_Apply annotation to Cstomer Name.cs" />
+    <Compile Include="Migrations\201710042218006_Apply annotation to Cstomer Name.Designer.cs">
+      <DependentUpon>201710042218006_Apply annotation to Cstomer Name.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201710051536400_Add Name To MemebershipType.cs" />
+    <Compile Include="Migrations\201710051536400_Add Name To MemebershipType.Designer.cs">
+      <DependentUpon>201710051536400_Add Name To MemebershipType.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201710051550390_Add BirthDay to customer.cs" />
+    <Compile Include="Migrations\201710051550390_Add BirthDay to customer.Designer.cs">
+      <DependentUpon>201710051550390_Add BirthDay to customer.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Customer.cs" />
@@ -317,6 +329,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201710042148157_PopulateMemberShipType.resx">
       <DependentUpon>201710042148157_PopulateMemberShipType.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201710042218006_Apply annotation to Cstomer Name.resx">
+      <DependentUpon>201710042218006_Apply annotation to Cstomer Name.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201710051536400_Add Name To MemebershipType.resx">
+      <DependentUpon>201710051536400_Add Name To MemebershipType.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201710051550390_Add BirthDay to customer.resx">
+      <DependentUpon>201710051550390_Add BirthDay to customer.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
