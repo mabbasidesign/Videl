@@ -5,6 +5,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using Videl.Models;
+using Videl.ViewModels;
 
 namespace Videl.Controllers
 {
@@ -22,7 +23,25 @@ namespace Videl.Controllers
             _context.Dispose();
         }
 
-        // GET: customer
+        public ActionResult Create()
+        {
+            var memberShipTypes = _context.MemberShipTypes
+                .ToList();
+            var viewModel = new NewCustomerViewModel
+            {
+                MemberShipType = memberShipTypes
+            };
+            return View(viewModel);
+        }
+
+        [HttpPost]
+        public ActionResult Create(Customer customer)
+        {
+            _context.Customers.Add(customer);
+            _context.SaveChanges();
+            return RedirectToAction("Index", "Customer");
+        }
+
         public ActionResult Index()
         {
             var customer = _context.Customers
@@ -30,6 +49,23 @@ namespace Videl.Controllers
                 .ToList();
 
             return View(customer);
+        }
+
+        public ActionResult Edit(int id)
+        {
+            var customer = _context.Customers
+                .Include(c => c.MemberShipType)
+               .SingleOrDefault(c => c.Id == id);
+            if (customer == null)
+                return HttpNotFound();
+
+            var viewModel = new NewCustomerViewModel
+            {
+                Customer = customer,
+                MemberShipType = _context.MemberShipTypes.ToList(),
+            };
+
+            return View("Create", viewModel);
         }
 
         public ActionResult Details(int id)
@@ -40,9 +76,7 @@ namespace Videl.Controllers
             if (customer == null)
                 return HttpNotFound();
 
-            return View(customer);
-
-         
+            return View(customer);        
         }
 
         private IEnumerable<Customer> GetCustomer()

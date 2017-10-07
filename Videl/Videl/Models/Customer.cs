@@ -20,6 +20,7 @@ namespace Videl.Models
 
         public MemberShipType MemberShipType { get; set; }
 
+        [Display(Name = "MemberShip Type")]
         public byte MemberShipTypeId { get; set; }
     }
 }
