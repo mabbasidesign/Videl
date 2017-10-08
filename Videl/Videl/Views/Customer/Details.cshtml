@@ -5,19 +5,24 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>@Model.Name</h2>
 
 
-<ul>
-    <li>Membership Type:  @Model.MemberShipType.Name</li>
-    @if (Model.BirthDay.HasValue)
-    {
-        <li>Birthday:  @Model.BirthDay.Value.ToShortDateString()</li>
-    }
-</ul>
+<div class="container">
+    <br />
+    <h1>@Model.Name</h1>
 
-<p>
-    @Html.ActionLink("Eit", "Edit", "Customer", new { id = Model.Id }, null) |
-    @Html.ActionLink("Back to list", "Index")
-</p>
+    <div class="Weel-center">
+        <div class="well">
+            @if (Model.BirthDay.HasValue)
+            {
+                <h4>Birtday:  @Model.BirthDay.Value.ToShortDateString()</h4>
+                <br />
+                <h4 class="alert alert-info"> Membership Type:  @Model.MemberShipType.Name</h4>
+                <h4 class="alert alert-info"> Subscription:  @Model.IsSubscribeToNewsLetter</h4>
 
+            }
+            @Html.ActionLink("Edit", "Edit", "Customer", new { id = Model.Id }, null)
+            <button class="btn btn-success">@Html.ActionLink("Back to list", "Index", "Customer")</button>
+        </div>
+    </div>
+</div>
