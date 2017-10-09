@@ -43,16 +43,6 @@ namespace Videl.Controllers
             return View(viewModel);
         }
 
-        //public ActionResult Index(int? pageIndex, string sortBy)
-        //{
-        //    if (!pageIndex.HasValue)
-        //        pageIndex = 1;
-        //    if (string.IsNullOrWhiteSpace(sortBy))
-        //        sortBy = "Name";
-
-        //    return Content(string.Format("pageIndex={0}&sortBy{1}", pageIndex, sortBy));
-        //}
-
         public ActionResult Index()
         {
             var movie = _context.Movies

@@ -42,6 +42,25 @@ namespace Videl.Controllers
             return RedirectToAction("Index", "Customer");
         }
 
+        [HttpPost]
+        public ActionResult Save(Customer customer)
+        {
+            if(customer.Id == 0)
+                _context.Customers.Add(customer);
+
+            else
+            {
+                var customerInDb = _context.Customers.SingleOrDefault(c => c.Id == customer.Id);
+                customerInDb.Name = customer.Name;
+                customerInDb.BirthDay = customer.BirthDay;
+                customerInDb.MemberShipTypeId = customer.MemberShipTypeId;
+                customerInDb.IsSubscribeToNewsLetter = customer.IsSubscribeToNewsLetter;
+            }
+
+            _context.SaveChanges();
+            return RedirectToAction("Index", "Customer");
+        }
+
         public ActionResult Index()
         {
             var customer = _context.Customers
