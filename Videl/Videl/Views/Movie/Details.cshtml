@@ -9,8 +9,12 @@
 <h2>@Model.Name</h2>
 <br />
 
-<h4>Genre:  @Model.Genre.Name</h4>
-<h4>Release Date:  @Model.ReleaseDate.ToLongDateString()</h4>
-<h4>Date Added:  @Model.DateAdded.ToLongDateString()</h4>
-<h4>Number In Stock:  @Model.NumberInStock</h4>
+<div class="well we">
+    <h4 class="alert alert-info">Genre:  @Model.Genre.Name</h4>
+    <h4 class="alert alert-warning">Release Date:  @Model.ReleaseDate.ToLongDateString()</h4>
+    <h4 class="alert alert-success">Date Added:  @Model.DateAdded.ToLongDateString()</h4>
+    <h4 class="alert alert-danger">Number In Stock:  @Model.NumberInStock</h4>
+
+    @Html.ActionLink("Edit", "Edit", "Movie", new { id = Model.Id}, null)
+</div>
 
