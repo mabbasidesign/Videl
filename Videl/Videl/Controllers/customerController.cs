@@ -35,6 +35,7 @@ namespace Videl.Controllers
         }
 
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult Create(Customer customer)
         {
             _context.Customers.Add(customer);
@@ -43,8 +44,20 @@ namespace Videl.Controllers
         }
 
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult Save(Customer customer)
         {
+            if (!ModelState.IsValid)
+            {
+                var viewModel = new NewCustomerViewModel
+                {
+                    Customer = customer,
+                    MemberShipType = _context.MemberShipTypes.ToList(),
+                };
+
+                return View("Create", viewModel);
+            }
+
             if(customer.Id == 0)
                 _context.Customers.Add(customer);
 

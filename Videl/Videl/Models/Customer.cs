@@ -14,6 +14,9 @@ namespace Videl.Models
         [StringLength(255)]
         public string Name { get; set; }
 
+        [Display(Name ="Dte of Birth")]
+
+        [Min18YearsIfMember]
         public DateTime? BirthDay { get; set; }
 
         public bool IsSubscribeToNewsLetter { get; set; }
