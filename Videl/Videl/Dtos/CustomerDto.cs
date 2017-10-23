@@ -1,12 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
-using System.ComponentModel.DataAnnotations;
 
-namespace Videl.Models
+namespace Videl.Dtos
 {
-    public class Customer
+    public class CustomerDto
     {
         public int Id { get; set; }
 
@@ -14,15 +14,11 @@ namespace Videl.Models
         [StringLength(255)]
         public string Name { get; set; }
 
-        [Display(Name ="Dte of Birth")]
-        [Min18YearsIfMember]
-        public DateTime? BirthDay { get; set; }
-
         public bool IsSubscribeToNewsLetter { get; set; }
 
-        public MemberShipType MemberShipType { get; set; }
-
-        [Display(Name = "MemberShip Type")]
         public byte MemberShipTypeId { get; set; }
+
+        //        [Min18YearsIfAMember]
+        public DateTime? BirthDay { get; set; }
     }
 }
