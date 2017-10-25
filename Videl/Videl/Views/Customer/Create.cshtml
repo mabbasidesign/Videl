@@ -7,9 +7,9 @@
 
 <h2>New Customer</h2>
 
-@using (Html.BeginForm("Save", "Customer"))
+@using (Html.BeginForm("Create", "Customer"))
 {
-    @Html.ValidationSummary(true, "    .............")
+    @*@Html.ValidationSummary(true, "    .............")*@
     <div class="form-group">
         @Html.LabelFor(c => c.Customer.Name)
         @Html.TextBoxFor(c => c.Customer.Name, new { @class = "form-control" })
